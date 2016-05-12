@@ -31,8 +31,9 @@
     double imc = peso / (altura * altura);
 %>
 
+<% if(peso != 0 || altura != 0){ %>
 <b><% out.println("IMC: " + imc); %></b>
-
+<% } %>
 
 </body>
 </html>
