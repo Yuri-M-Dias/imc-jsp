@@ -25,8 +25,8 @@
     String pesoStr = request.getParameter("peso");
     String alturaStr = request.getParameter("altura");
     String sexoStr = request.getParameter("sexo");
-    if(pesoStr == null ) pesoStr = "0";// Forgive me programming gods for this
-    if(alturaStr == null ) alturaStr = "0";
+    if (pesoStr == null) pesoStr = "0";// Forgive me programming gods for this
+    if (alturaStr == null) alturaStr = "0";
     if (sexoStr == null) sexoStr = "";
     pesoStr = pesoStr.replaceAll("/,", "/.");
     alturaStr = alturaStr.replaceAll("/,", "/.");
@@ -40,6 +40,17 @@
             simplificada</a>
     </div>
 </nav>
+
+
+<% if (peso != 0 || altura != 0) {
+    // Ignora sexo
+    double imc = peso / (altura * altura);
+%>
+<div class="col s6 offset-s3 card-panel teal lighten-2">
+    <p> Resultado do cálculo IMC: <%= imc %>
+    </p>
+</div>
+<% } %>
 
 <form id="form" class="col s6 offset-s3">
     <div class="row">
@@ -78,21 +89,14 @@
 
 </form>
 
-<% if (peso != 0 || altura != 0) {
-    // Ignora sexo
-    double imc = peso / (altura * altura);
-%>
-<b class="row s12">IMC: <%= imc %></b>
-<% } %>
-
 <script type="text/javascript"
         src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script type="text/javascript"> // Enough JS to activate Materialize
-    $(document).ready(function() {
-        $('select').material_select();
-    });
+$(document).ready(function () {
+    $('select').material_select();
+});
 </script>
 </body>
 </html>
