@@ -49,6 +49,27 @@
 <div class="col s6 offset-s3 card-panel teal lighten-2">
     <p> Resultado do cálculo IMC: <%= imc %>
     </p>
+    <% if (imc < 17) { %>
+    <b>Estás muito abaixo do peso!</b>
+    <% } %>
+    <% if (imc >= 17 && imc < 18.5) { %>
+    <b>Estás abaixo do peso!</b>
+    <% } %>
+    <% if (imc >= 18.5 && imc < 25) { %>
+    <b>Estás com peso normal!</b>
+    <% } %>
+    <% if (imc >= 25 && imc < 30) { %>
+    <b>Estás acima do peso!</b>
+    <% } %>
+    <% if (imc >= 30 && imc < 35) { %>
+    <b>Estás com obesidade I!</b>
+    <% } %>
+    <% if (imc >= 35 && imc < 40) { %>
+    <b>Estás com obesidade II (severa)!</b>
+    <% } %>
+    <% if (imc >= 40) { %>
+    <b>Estás com obesidade III (mórbida)!</b>
+    <% } %>
 </div>
 <% } %>
 
